@@ -1,6 +1,6 @@
 # Cryptographics-Challenge-Problems
 
-This repository contains a User Registration and Authentication System implemented in Go. It allows users to register with a username and password and authenticate themselves later. The application uses SQLite as the database and Argon2 for password hashing, providing a secure and straightforward web interface.
+This repository contains a User Registration and Authentication System with salted hash implemented in Go. It allows users to register with a username and password and authenticate themselves later. The application uses SQLite as the database and Argon2 for password hashing, providing a secure and straightforward web interface.
 
 ## Table of Contents
 - [Overview](#overview)
