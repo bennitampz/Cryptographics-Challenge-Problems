@@ -79,7 +79,7 @@ To check if the user data has been successfully inserted into the SQLite databas
    
    ```bash
  
-    sqlite3 users.db
+   sqlite3 users.db
 
    SELECT * FROM users;
 
