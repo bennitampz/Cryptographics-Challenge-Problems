@@ -86,6 +86,9 @@ To check if the user data has been successfully inserted into the SQLite databas
 ## Endpoints
 
 a. GET /register: Serves the registration HTML page.
+
 b. GET /authenticate: Serves the authentication HTML page.
+
 c. POST /register_process: Processes user registration.
+
 d. POST /authenticate_process: Processes user authentication.
