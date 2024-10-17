@@ -12,9 +12,6 @@ This repository contains a User Registration and Authentication System implement
 - [Verifying Data in SQLite](#verifying-data-in-sqlite)
 - [Code Structure](#code-structure)
 - [Endpoints](#endpoints)
-- [Error Handling](#error-handling)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -80,8 +77,15 @@ To check if the user data has been successfully inserted into the SQLite databas
 
 1. Open SQLite: In your terminal, navigate to the directory containing users.db and start the SQLite shell:
    
- ```bash
-  sqlite3 users.db
+   ```bash
+ 
+    sqlite3 users.db
 
-2. 
+   SELECT * FROM users;
 
+## Endpoints
+
+a. GET /register: Serves the registration HTML page.
+b. GET /authenticate: Serves the authentication HTML page.
+c. POST /register_process: Processes user registration.
+d. POST /authenticate_process: Processes user authentication.
