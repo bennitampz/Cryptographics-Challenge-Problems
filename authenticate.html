@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Autentikasi Pengguna</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #007bff;
+            padding: 10px 0;
+            border-radius: 0 0 5px 5px;
+            position: fixed; /* Memastikan navbar tetap di atas */
+            top: 0; /* Menempatkan navbar di bagian atas */
+            left: 0;
+            z-index: 1000; /* Menjaga navbar di atas konten lainnya */
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar li {
+            margin: 0 15px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 200px 10px 10px; /* Menambahkan margin atas untuk memberikan jarak */
+        }
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input {
+            padding: 12px;
+            width: 100%;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            box-sizing: border-box; /* Memastikan padding tidak mengubah ukuran total */
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: auto; /* Memastikan footer berada di bawah */
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="register">Pendaftaran</a></li>
+            <li><a href="authenticate">Autentikasi</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Autentikasi Pengguna</h1>
+        <form id="authenticationForm" action="/authenticate_process" method="POST" novalidate>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Masuk</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <footer>
+        &copy; 2024 Benni Hasahatan Tampubolon
+    </footer>
+    <script>
+        document.getElementById("authenticationForm").onsubmit = async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Password atau Username yang anda masukkan salah');
+                }
+                
+                const data = await response.text();
+                document.getElementById("message").innerText = data;
+            } catch (error) {
+                document.getElementById("message").innerText = "Terjadi kesalahan " + error.message;
+            }
+        };
+    </script>
+</body>
+</html>
