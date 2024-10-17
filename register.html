@@ -148,7 +148,7 @@
                 });
                 
                 if (!response.ok) {
-                    throw new Error('Respon jaringan tidak baik');
+                    throw new Error('Password atau Username yang anda masukkan salah');
                 }
                 
                 const data = await response.text();
