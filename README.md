@@ -48,28 +48,32 @@ This application allows users to register and authenticate using a web interface
 
 ## Registering a User
 
-1. Open your web browser and navigate to http://localhost:8080/register.
-2. Fill in the registration form:
+1. Open your web browser and navigate to http://localhost:8080/register or look at the top of the
+website there is navigation to panel register.
+
+3. Fill in the registration form:
 
      Username: Enter a username (1-15 alphanumeric characters).
 
      Password: Enter a password (minimum 8 characters, must include letters, numbers, and special characters).
 
-3. Click the "Daftar" button to submit the form.
+4. Click the "Daftar" button to submit the form.
    
-4. You will receive feedback indicating whether the registration was successful or if there were errors.
+5. You will receive feedback indicating whether the registration was successful or if there were errors.
 
 ## Authenticating a User
 
-1. Navigate to http://localhost:8080/authenticate.
-2. Fill in the authentication form:
+1. Navigate to http://localhost:8080/authenticate or look at the top of the
+website there is navigation to panel authenticate.
+
+3. Fill in the authentication form:
 
     Username: Enter your registered username.
 
     Password: Enter your password.
    
-3. Click the "Masuk" button to log in.
-4. You will receive feedback indicating whether authentication was successful or if there were errors.
+4. Click the "Masuk" button to log in.
+5. You will receive feedback indicating whether authentication was successful or if there were errors.
 
 ## Verifying Data in SQLite
 
